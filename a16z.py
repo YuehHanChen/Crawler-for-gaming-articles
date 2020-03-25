@@ -7,7 +7,7 @@ from merge import days
 
 def validate_url(url):
     resp = requests.get(url)
-    if resp.status_code != 200:  # 若狀態不等於200表示不正常
+    if resp.status_code != 200: 
         return None
     else:
         return resp.text
@@ -25,8 +25,8 @@ def validate_article_date(dom,date_list):
                 articles_dict[article.h3.text.strip()] = article.a["href"]
     return articles_dict
 
-#func1 判斷月份天數func：是奇數還偶數月，可以判斷本月天數 ok
-#func2 做出找出上個月的func ok
+#function 1: to determine odd month or even month, so we can know the numbers of days
+#function 2: find the date of today, if 
 #先找到今天的日期 如果-7之後小於0天，那麼就要用到找上個月的func
 #把過去第7天的日期+=1 一直加到今天 到一個串列中
 #如果過程中有跨月份，那麼要記得在迴圈中判斷是否到達上個月日期的天數
