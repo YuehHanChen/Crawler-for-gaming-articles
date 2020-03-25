@@ -7,7 +7,7 @@ from merge import days
 
 def validate_url(url):
     resp = request.get(url,3)
-    if resp.status_code != 200:  # 若狀態不等於200表示不正常
+    if resp.status_code != 200:  
         return None
     else:
         return resp.text
