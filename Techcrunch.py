@@ -10,7 +10,7 @@ from selenium.common.exceptions import TimeoutException
 
 def validate_url(url):
     resp = request.get(url,3)
-    if resp.status_code != 200:  # 若狀態不等於200表示不正常
+    if resp.status_code != 200: 
         if url == "https://techcrunch.com"+a:
             return None
         else:
@@ -124,13 +124,11 @@ if __name__ == '__main__':
     url = "https://techcrunch.com/"
 
     try:
-        # 啟動Webdriver
+        # activate Webdriver
         driver = webdriver.Chrome(executable_path='chromedriver 3')
-        # Webdriver 的執行檔也可以使用 PhantomJS
-        # driver = webdriver.PhantomJS('phantomjs.exe')
-        driver.maximize_window()  # 打開瀏覽器之後把視窗放最大
-        driver.set_page_load_timeout(90)  # 等待時間最多是60秒，讓他去下載網址資訊
-        driver.get(url)  # 使用get去前往該網頁
+        driver.maximize_window()  
+        driver.set_page_load_timeout(90)  # safe
+        driver.get(url)  
 
         time.sleep(15)
         ac = driver.find_element_by_class_name('load-more ')
@@ -159,8 +157,7 @@ if __name__ == '__main__':
                 url, title =validate_tag("https://techcrunch.com" + i)
                 print(title," => ",url)
                 target_list[title] = url
-        # for i in target_list.items():
-        #     print(i)
+
     except TimeoutException as ex:
         isrunning = 0
         print("Exception has been thrown. " + str(ex))
