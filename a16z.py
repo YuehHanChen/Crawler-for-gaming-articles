@@ -29,7 +29,7 @@ def validate_article_date(dom,date_list):
 #function 2: find the date of today
 #find the date of today. If the value minusing 7 is smaller than 0, use find_last_month()
 #keep adding 1 to the date constantly. 
-#如果過程中有跨月份，那麼要記得在迴圈中判斷是否到達上個月日期的天數
+#if crossing the months, judge whether meet the maximum numbers of days in last month
 
 def give_me_last_several_day_list(days):
     today = time.strftime("%m/%d").lstrip('0')
